@@ -1,1 +1,7 @@
-<p>event works!</p>
+<div *ngIf="event" class="mb-5">
+    <h5 class="mb-3">{{event.name}}</h5>
+    <p>Date: {{event.date | date}} at {{event.time}}</p>
+    <p>Meet at: {{event.location}}</p>
+    <p>Description: {{event.description}}</p>
+    <p>Attendees: {{event.attendees.length}}</p>
+</div>

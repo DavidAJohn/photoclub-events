@@ -13,13 +13,15 @@ export class EventsService {
   constructor(private http: HttpClient) {  }
 
   findEventBySlug(slug: string): Observable<Event> {
-    return this.http.get<Event>(`${this.apiUrl}/api/events?slug=${slug}`);
+    return this.http.get<Event>(`${this.apiUrl}/events?slug=${slug}`);
   }
 
   findAllEvents(): Observable<Event[]> {
-      return this.http.get(this.apiUrl + '/api/events')
+      return this.http.get(this.apiUrl + '/events')
           .pipe(
-              map(res => res['payload'])
-          );
+            map((events: Event[]) => {
+              return events;
+            })
+          )
   }
 }
