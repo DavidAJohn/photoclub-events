@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { EventsModule } from './events/events.module';
+import { SlugifyPipe } from './helpers/slugify.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SlugifyPipe
   ],
   imports: [
     BrowserModule,
@@ -17,7 +19,7 @@ import { EventsModule } from './events/events.module';
     CoreModule,
     EventsModule
   ],
-  providers: [],
+  providers: [SlugifyPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

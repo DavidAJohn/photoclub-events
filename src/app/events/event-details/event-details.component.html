@@ -1,4 +1,4 @@
-<a href='/'>
+<a routerLink=''>
     <button class="btn btn-secondary btn-sm mb-5">Go Back</button>
 </a>
 
@@ -12,6 +12,7 @@
         </div>
         <p>{{event.date | date}} at {{event.time}}</p>
         <p>Meeting at: {{event.location}}</p>
+        <p>{{event.category.name}}</p>
         <p>{{event.description}}</p>
         <p>Confirmed Attendees: {{event.attendees.length}}</p>
     </div>

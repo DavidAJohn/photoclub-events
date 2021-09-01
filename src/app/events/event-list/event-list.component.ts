@@ -17,6 +17,10 @@ export class EventListComponent implements OnInit {
   }
 
   getAllEvents(): void {
-    this.events$ = this.eventsService.findAllEvents();
+    this.events$ = this.eventsService.getAllEvents();
+  }
+
+  createNewEvent(): void {
+    this.eventsService.createNewEvent();
   }
 }

@@ -20,7 +20,7 @@ export class EventDetailsComponent implements OnInit {
   }
 
   showEventDetails(): void {
-    this.event$ = this.eventsService.findEventBySlug(this.eventSlug);
+    this.event$ = this.eventsService.getEventBySlug(this.eventSlug);
   }
 
 }

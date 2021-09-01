@@ -1,6 +1,9 @@
-<div *ngFor="let event of (events$ | async)">
+<div *ngFor="let event of (events$ | async)" class="d-flex">
     <app-event
         [event]=event
     >
     </app-event>
 </div>
+<button class="btn btn-primary btn-sm mt-5" (click)="createNewEvent()">
+    Create New Event
+</button>
