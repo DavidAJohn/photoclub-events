@@ -1,10 +1,12 @@
 <div *ngIf="event" class="mb-5 d-flex">
     <div class="mr-5">
-        <img src={{event.image.formats.thumbnail.url}} alt="" />
+        <a [routerLink]="['/events/', event.slug]">
+            <img src={{event.image.formats.thumbnail.url}} alt="" />
+        </a>
     </div>
     <div>
         <div class="mb-3">
-            <a href='/events/{{event.slug}}'>
+            <a [routerLink]="['/events/', event.slug]">
                 {{event.name}}
             </a>
         </div>
