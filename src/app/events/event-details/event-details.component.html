@@ -1,19 +1,19 @@
 <a routerLink=''>
-    <button class="btn btn-secondary btn-sm mb-5">Go Back</button>
+    <button class="button is-dark is-small mb-6">Go Back</button>
 </a>
 
-<div *ngFor="let event of (event$ | async)" class="d-flex">
-    <div class="mr-5">
+<div *ngFor="let event of (event$ | async)" class="columns">
+    <div class="column is-one-quarter mr-4">
         <img src={{event.image.formats.thumbnail.url}} alt="" />
     </div>
-    <div>
+    <div class="column">
         <div class="mb-3">
-            <h5>{{event.name}}</h5>
+            <h5 class="is-size-4-desktop">{{event.name}}</h5>
         </div>
-        <p>{{event.date | date}} at {{event.time}}</p>
-        <p>Meeting at: {{event.location}}</p>
-        <p>{{event.category.name}}</p>
-        <p>{{event.description}}</p>
-        <p>Confirmed Attendees: {{event.attendees.length}}</p>
+        <p class="mb-2">{{event.date | date}} at {{event.time}}</p>
+        <p class="mb-2">Meeting at: {{event.location}}</p>
+        <p class="mb-2">{{event.category.name}}</p>
+        <p class="mb-2">{{event.description}}</p>
+        <p class="mb-2">Confirmed Attendees: {{event.attendees.length}}</p>
     </div>
 </div>

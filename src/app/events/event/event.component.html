@@ -1,16 +1,16 @@
-<div *ngIf="event" class="mb-5 d-flex">
-    <div class="mr-5">
+<div *ngIf="event" class="columns mb-6">
+    <div class="column is-one-quarter">
         <a [routerLink]="['/events/', event.slug]">
             <img src={{event.image.formats.thumbnail.url}} alt="" />
         </a>
     </div>
-    <div>
-        <div class="mb-3">
-            <a [routerLink]="['/events/', event.slug]">
+    <div class="column is-text-left">
+        <div class="is-size-5 mb-4">
+            <a [routerLink]="['/events/', event.slug]" class="has-text-dark">
                 {{event.name}}
             </a>
         </div>
-        <p>{{event.date | date}} at {{event.time}}</p>
-        <p>Confirmed Attendees: {{event.attendees.length}}</p>
+        <p class="has-text-grey-light">{{event.date | date}} at {{event.time}}</p>
+        <p class="has-text-grey-light">Confirmed Attendees: {{event.attendees.length}}</p>
     </div>
 </div>
