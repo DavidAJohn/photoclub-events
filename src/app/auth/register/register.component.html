@@ -11,6 +11,7 @@
           <span class="icon is-small is-right">
           <i class="fas fa-check"></i>
           </span>
+          {{ authForm.get('username').errors | json }}
         </div>
       </div>
       <div class="field">
@@ -23,6 +24,7 @@
           <span class="icon is-small is-right">
           <i class="fas fa-exclamation-triangle"></i>
           </span>
+          {{ authForm.get('email').errors | json }}
         </div>
       </div>
       <div class="field">
@@ -35,6 +37,7 @@
           <span class="icon is-small is-right">
           <i class="fas fa-exclamation-triangle"></i>
           </span>
+          {{ authForm.get('password').errors | json }}
         </div>
       </div>
       <div class="field">
@@ -47,6 +50,7 @@
           <span class="icon is-small is-right">
           <i class="fas fa-exclamation-triangle"></i>
           </span>
+          {{ authForm.get('passwordConfirm').errors | json }}
         </div>
       </div>
       <div class="field pt-3">
