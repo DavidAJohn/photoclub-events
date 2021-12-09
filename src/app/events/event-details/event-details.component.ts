@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { EventsService } from 'src/app/services/events.service';
+import { EventsService } from '../events.service';
 
 @Component({
   selector: 'app-event-details',

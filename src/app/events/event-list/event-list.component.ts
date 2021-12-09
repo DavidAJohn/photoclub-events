@@ -1,4 +1,4 @@
-import { EventsService } from './../../services/events.service';
+import { EventsService } from '../events.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
