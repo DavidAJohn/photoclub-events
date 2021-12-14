@@ -5,7 +5,16 @@
                 <div class="field">
                     <label class="label">Email</label>
                     <div class="control ">
-                      <input formControlName="email" class="input" type="email" placeholder="Email">
+                      <input 
+                        formControlName="email" 
+                        [ngClass]="email.invalid && email.touched ? 'input is-danger' : 'input'"
+                        class="input" 
+                        type="email" 
+                        placeholder="Email">
+                      <div *ngIf="email.invalid && email.touched">
+                        <div *ngIf="email.errors?.required" class="help is-danger">Email address is required</div>
+                        <div *ngIf="email.errors?.pattern" class="help is-danger">Please provide a valid email address</div>
+                      </div>
                       <span class="icon is-small is-left">
                         <i class="fas fa-envelope"></i>
                       </span>
@@ -17,7 +26,16 @@
                 <div class="field">
                     <label class="label">Password</label>
                     <div class="control ">
-                      <input formControlName="password" class="input" type="password" placeholder="Password">
+                      <input 
+                        formControlName="password" 
+                        [ngClass]="(password.invalid && password.touched) ? 'input is-danger' : 'input'"
+                        class="input" 
+                        type="password" 
+                        placeholder="Password">
+                      <div *ngIf="password.invalid && password.touched">
+                        <div *ngIf="password.errors?.required" class="help is-danger">Password is required</div>
+                        <div *ngIf="password.errors?.minlength" class="help is-danger">Password must be at least 8 characters</div>
+                      </div>
                       <span class="icon is-small is-left">
                         <i class="fas fa-envelope"></i>
                       </span>
@@ -26,8 +44,25 @@
                       </span>
                     </div>
                 </div>
+                <div 
+                    *ngIf="loginForm.errors" 
+                    class="notification is-danger is-light"
+                >
+                  <p *ngIf="loginForm.errors.credentials">
+                    Login failed: Invalid email address or password
+                  </p>
+                  <p *ngIf="loginForm.errors.unknown">
+                    Unknown error: Please try again later
+                  </p>
+                </div>
                 <div class="mt-6 has-text-centered">
-                    <button class="button is-warning" [disabled]="loginForm.invalid" type="submit">Sign In</button>
+                  <button 
+                    [ngClass]="isSubmitting ? 'button is-warning is-loading' : 'button is-warning'" 
+                    [disabled]="loginForm.invalid || isSubmitting" 
+                    type="submit"
+                  >
+                    Sign In
+                  </button>
                 </div>
             </form>
         </div>
