@@ -2,8 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { SigninCredentials } from './models/SigninCredentials';
-import { SigninResponse } from './models/SigninResponse';
+import { RegCredentials } from './models/regCredentials';
+import { RegResponse } from './models/regResponse';
+import { SigninCredentials } from './models/signinCredentials';
+import { SigninResponse } from './models/signinResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +17,14 @@ export class AuthService {
 
   signIn(credentials: SigninCredentials): Observable<any> {
     return this.http.post<SigninResponse>(this.apiUrl + '/auth/local', credentials)
+      .pipe((response) => {
+        return response;
+      },
+    );
+  }
+
+  register(credentials: RegCredentials): Observable<any> {
+    return this.http.post<RegResponse>(this.apiUrl + '/auth/local/register', credentials)
       .pipe((response) => {
         return response;
       },
