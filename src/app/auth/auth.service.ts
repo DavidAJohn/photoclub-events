@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { RegCredentials } from './models/regCredentials';
 import { RegResponse } from './models/regResponse';
@@ -12,6 +12,7 @@ import { SigninResponse } from './models/signinResponse';
 })
 export class AuthService {
   apiUrl = environment.apiUri;
+  signedIn$ = new BehaviorSubject(false);
   
   constructor(private http: HttpClient) { }
 

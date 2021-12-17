@@ -47,14 +47,22 @@
 
       <div class="navbar-end">
         <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary" href="/register" >
-              Sign up
+          <ng-container *ngIf="signedIn$ | async">
+            <div class="mr-4">
+                Hi, username!
+            </div>
+            <a class="button is-primary" routerLink="/logout" routerLinkActive="active">
+                Log Out
             </a>
-            <a class="button is-light" href="/login" >
-              Log in
+          </ng-container>
+          <ng-container *ngIf="!(signedIn$ | async)">
+            <a class="button is-light mr-4" routerLink="/login" routerLinkActive="active">
+                Log In
             </a>
-          </div>
+            <a class="button is-primary" routerLink="/register" routerLinkActive="active">
+                Register
+            </a>
+          </ng-container>
         </div>
       </div>
     </div>
