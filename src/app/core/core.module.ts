@@ -3,6 +3,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CoreRoutingModule } from './core-routing.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     CommonModule,
-    EventsModule
+    EventsModule,
+    CoreRoutingModule
   ],
   exports: [
     HomeComponent,
